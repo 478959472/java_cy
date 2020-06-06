@@ -26,5 +26,12 @@
             <version>1.7.25</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>edu.princeton.cs</groupId>
+            <artifactId>algs4</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/algs4.jar</systemPath>
+        </dependency>
     </dependencies>
 </project>
