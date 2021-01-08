@@ -1,3 +1,5 @@
+package learning;
+
 import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Iterator;

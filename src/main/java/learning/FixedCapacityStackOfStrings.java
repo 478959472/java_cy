@@ -1,3 +1,5 @@
+package learning;
+
 public class FixedCapacityStackOfStrings {
 
     private String[] stack;

@@ -1,3 +1,5 @@
+package learning;
+
 public class ExceptionDemo {
     public static void hello(){
         throw new RuntimeException("错误1");
