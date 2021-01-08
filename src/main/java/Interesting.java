@@ -1,10 +1,14 @@
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
+/**
+ * @author chenyun
+ * @since 2019-06-27
+ */
 public class Interesting {
     volatile int a = 1;
     volatile int b = 1;
-    public void add() {
+    public synchronized void add() {
         log.info("add start");
         for (int i = 0; i < 10000; i++) {
             a++;
@@ -12,7 +16,11 @@ public class Interesting {
         }
         log.info("add done");
     }
-    public void compare() {
+
+    /**
+     * @Description 比较
+     */
+    public synchronized void compare() {
         log.info("compare start");
         for (int i = 0; i < 10000; i++) {
 //a始终等于b吗？
