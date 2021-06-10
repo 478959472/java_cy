@@ -1,2 +1,9 @@
 /.idea
 /data/algs4-data/
+/target
+/.classpath
+/.project
+/.factorypath
+/.settings
+java_ccy.iml
+.gitignore
