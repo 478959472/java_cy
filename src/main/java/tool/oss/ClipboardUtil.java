@@ -37,19 +37,25 @@ public class ClipboardUtil {
             System.err.println("error: nothing found in clipboard");
             return null;
         }
-        if (!content.isDataFlavorSupported(DataFlavor.imageFlavor)) {
-            System.err.println("error: no image found in clipbaord");
-            return null;
-        }
-        BufferedImage img = (BufferedImage) content.getTransferData(DataFlavor.imageFlavor);
-        String ext = ext(filename);
-        if (ext == null) {
-            ext = "png";
-            filename += "." + ext;
-        }
         File outfile = new File(filename);
-        ImageIO.write(img, ext, outfile);
-        System.err.println("image copied to: " + outfile.getAbsolutePath());
+        //截图
+        if (content.isDataFlavorSupported(DataFlavor.imageFlavor)) {
+            BufferedImage img = (BufferedImage) content.getTransferData(DataFlavor.imageFlavor);
+            String ext = ext(filename);
+            if (ext == null) {
+                ext = "png";
+                filename += "." + ext;
+            }
+            ImageIO.write(img, ext, outfile);
+            System.err.println("image copied to: " + outfile.getAbsolutePath());
+        }else if (content.isDataFlavorSupported(DataFlavor.stringFlavor)){
+            String filePath = (String) content.getTransferData(DataFlavor.stringFlavor);
+            filePath = filePath.replaceAll("\"","");
+            System.out.println("复制的文件地址：" + filePath);
+            outfile = new File(filePath);
+        }
+
+
         return outfile;
     }
 
